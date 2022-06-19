@@ -6,7 +6,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('QR Builder') }}</div>
-
+              <!--  <div class="card-header">{{ $qrCode }}</div> -->
+ 
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
