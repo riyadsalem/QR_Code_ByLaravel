@@ -42,6 +42,14 @@ class QrController extends Controller
    $qr_correction = $request->input('qr_correction') ?? 'H';
    $qr_encoding = $request->input('qr_encoding') ?? 'UTF-8';
 
+   $qr_eye = $request->input('qr_eye') ?? 'square';
+   $qr_margin = $request->input('qr_margin') ?? '0';
+   $qr_style = $request->input('qr_style') ?? 'square';
+
+   // Used https://github.com/spatie/color >> installation This Package 
+   $qr_color = Hex::fromString($request->input('qr_color') ?? '#000000')->toRgba(); // QrCode >>> to Use rgb 
+
+
 
       
    
@@ -50,6 +58,13 @@ class QrController extends Controller
    $qr->size($qr_size);
    $qr->errorCorrection($qr_correction);
    $qr->encoding($qr_encoding);
+
+   $qr->eye($qr_eye );
+   $qr->margin($qr_margin );
+   $qr->style($qr_style);
+
+   $qr->color($qr_color->red(), $qr_color->green(), $qr_color->blue());
+
    $qr->generate($body, '../public/qr_code/' . $code);
 
    return back()->with([

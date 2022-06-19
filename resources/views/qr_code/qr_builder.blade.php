@@ -122,6 +122,65 @@
                                 
                                 </div><!-- End: row -->
 
+                                <hr>
+
+
+                                <div class="row">
+                                    <div class="col-3">
+
+                                       <div class="mb-3">
+                                          <label for="qr_eye" class="form-label" >QR Eye</label>
+                                          <select name="qr_eye" class="form-control">
+                                            <option value="">Select QR Eye</option>
+                                            <option value="square">Square</option>
+                                            <option value="circle">Circle</option>
+                                          </select> <!-- End: select -->
+                                       </div>
+
+                                    </div> <!-- End: col-3 -->
+
+                                    <div class="col-3">
+
+                                       <div class="mb-3">
+                                          <label for="qr_margin" class="form-label" >QR Margin</label>
+                                          <input type="number" name="qr_margin" value="{{ old('qr_margin',0) }}" min="0" max="100" step=".1" class="form-control">
+                                       </div>
+
+                                    </div> <!-- End: col-3 -->
+                                    
+
+                                    <div class="col-3">
+
+                                       <div class="mb-3">
+                                          <label for="qr_style" class="form-label" >QR Style</label>
+                                          <select name="qr_style" class="form-control">
+                                            <option value="">Select QR Style</option>
+                                            <option value="square">Square</option>
+                                            <option value="dot">Dot</option>
+                                            <option value="round">Round</option>
+                                          </select> <!-- End: select -->
+                                       </div>
+
+                                    </div> <!-- End: col-3 -->
+                                    
+                                    
+                                    <div class="col-3">
+
+                                       <div class="mb-3">
+                                          <label for="qr_color" class="form-label" >QR Color</label>
+                                          <input type="color" name="qr_color" 
+                                          value="{{ old('qr_color' , '#000000') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-3 -->
+                                
+                                
+                                </div><!-- End: row -->
+
+                                <hr>
+
+
+
                                 <div class="mb-3">
                                     <button type="submit" name="submit" class="btn btn-primary"> Generate QR Code </button>
                                 </div>
@@ -131,11 +190,14 @@
                         </div> <!-- End: col-8 FORM -->
 
 
-                        <div class="col-4">
-                         @if (session('status'))
-                         <img src="{{ asset('qr_code/' . session('code')) }}" alt="{{ session('code') }}" class="img-fluid">
-                         @endif
-
+                        <div class="col-4" >
+                                @if (session('code'))
+                                    @if (pathinfo(session('code'))['extension'] === 'eps')
+                                        QR Code available, <a href="{{ asset('qr_code/' . session('code')) }}">click here</a> to download it.
+                                    @else
+                                        <img src="{{ asset('qr_code/' . session('code')) }}" alt="{{ session('code') }}" class="img-fluid">
+                                    @endif
+                                @endif
                         </div> <!-- End: col-4 ImageQrCode -->
                     </div><!-- End: row AllData -->
 
