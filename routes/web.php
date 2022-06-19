@@ -15,8 +15,4 @@ use  App\Http\Controllers\QrController;
 */
 
 Route::get('/', [QrController::class, 'index']);
-
-/*
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-*/
+Route::post('qr-builder',[QrController::class, 'do_qr_builder'])->name('do_qr_builder');
