@@ -26,13 +26,13 @@
                                     <label for="name" class="form-label" >Name</label>
                                     <input type="text" name="name" value="{{ old('name') }}" class="form-control">
                                     @error('name')<span class="text-danger">{{ $message }}</span>@enderror
-                                </div>
+                                </div> <!-- End: mb-3 -->
 
                                 <div class="mb-3">
                                     <label for="body" class="form-label" >Body</label>
                                     <input type="text" name="body" value="{{ old('body') }}" class="form-control">
                                     @error('body')<span class="text-danger">{{ $message }}</span>@enderror
-                                </div>
+                                </div> <!-- End: mb-3 -->
 
                                 <hr>
 
@@ -179,11 +179,163 @@
 
                                 <hr>
 
+                                <div class="row">
+                                    <div class="col-6">
+                                        
+                                       <div class="mb-3">
+                                          <label for="qr_background_color" class="form-label" >
+                                            QR Background Color</label>
+                                          <input type="color" name="qr_background_color" 
+                                          value="{{ old('qr_background_color' , '#FFFFFF') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-6 -->
+
+                                    <div class="col-6">
+
+                                      <div class="mb-3">
+                                          <label for="qr_background_transparent" class="form-label" >
+                                            QR Background Transparent</label>
+                                          <input type="number" name="qr_background_transparent" value="{{ old('qr_background_transparent',0) }}" min="0" max="100" step="1" class="form-control">
+                                       </div>
+
+                                    </div> <!-- End: col-6 -->
+
+                                    
+                                </div> <!-- End: row -->
+
+                                <hr>
+
+                                
+                                <div class="row">
+                                    <div class="col-6">
+                                        
+                                       <div class="mb-3">
+                                          <label for="qr_eye_color_inner_0" class="form-label" >
+                                            QR Color Inner 0</label>
+                                          <input type="color" name="qr_eye_color_inner_0" 
+                                          value="{{ old('qr_eye_color_inner_0' , '#000000') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-6 -->
+
+                                    <div class="col-6">
+
+                                    <div class="mb-3">
+                                          <label for="qr_eye_color_outer_0" class="form-label" >
+                                            QR Color Outer 0</label>
+                                          <input type="color" name="qr_eye_color_outer_0" 
+                                          value="{{ old('qr_eye_color_outer_0' , '#000000') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-6 -->
+
+                                    
+                                </div> <!-- End: row -->
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        
+                                       <div class="mb-3">
+                                          <label for="qr_eye_color_inner_1" class="form-label" >
+                                            QR Color Inner 1</label>
+                                          <input type="color" name="qr_eye_color_inner_1" 
+                                          value="{{ old('qr_eye_color_inner_1' , '#000000') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-6 -->
+
+                                    <div class="col-6">
+
+                                    <div class="mb-3">
+                                          <label for="qr_eye_color_outer_1" class="form-label" >
+                                            QR Color Outer 1</label>
+                                          <input type="color" name="qr_eye_color_outer_1" 
+                                          value="{{ old('qr_eye_color_outer_1' , '#000000') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-6 -->
+
+                                    
+                                </div> <!-- End: row -->
+
+                                
+                                <div class="row">
+                                    <div class="col-6">
+                                        
+                                       <div class="mb-3">
+                                          <label for="qr_eye_color_inner_2" class="form-label" >
+                                            QR Color Inner 2</label>
+                                          <input type="color" name="qr_eye_color_inner_2" 
+                                          value="{{ old('qr_eye_color_inner_2' , '#000000') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-6 -->
+
+                                    <div class="col-6">
+
+                                    <div class="mb-3">
+                                          <label for="qr_eye_color_outer_2" class="form-label" >
+                                            QR Color Outer 2</label>
+                                          <input type="color" name="qr_eye_color_outer_2" 
+                                          value="{{ old('qr_eye_color_outer_2' , '#000000') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-6 -->
+
+                                    
+                                </div> <!-- End: row -->
+
+                                <hr>
+
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        
+                                       <div class="mb-3">
+                                          <label for="qr_gradient_start" class="form-label" >
+                                            QR Gradient Start</label>
+                                          <input type="color" name="qr_gradient_start" 
+                                          value="{{ old('qr_gradient_start' , '#000000') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-4 -->
+
+                                    <div class="col-4">
+
+                                    <div class="mb-3">
+                                          <label for="qr_gradient_end" class="form-label" >
+                                            QR Gradient End</label>
+                                          <input type="color" name="qr_gradient_end" 
+                                          value="{{ old('qr_gradient_end' , '#000000') }}"  class="form-control" >
+                                       </div>
+
+                                    </div> <!-- End: col-4 -->
+
+                                    <div class="col-4">
+
+                                       <div class="mb-3">
+                                          <label for="qr_gradient_type" class="form-label" >QR Gradient Type</label>
+                                          <select name="qr_gradient_type" class="form-control">
+                                            <option value="">Select QR Gradient Type</option>
+                                            <option value="vertical">Vertical</option>
+                                            <option value="horizontal">Horizontal</option>
+                                            <option value="diagonal">Diagonal</option>
+                                            <option value="inverse_diagonal">Inverse Diagonal</option>
+                                            <option value="radial">Radial</option>
+                                          </select> <!-- End: select -->
+                                       </div>
+
+                                    </div> <!-- End: col-4 -->
+
+                                    
+                                </div> <!-- End: row -->
+
 
 
                                 <div class="mb-3">
                                     <button type="submit" name="submit" class="btn btn-primary"> Generate QR Code </button>
-                                </div>
+                                </div> <!-- End: mb-3 -->
 
 
                             </form> <!-- End: form -->
