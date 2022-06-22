@@ -15,6 +15,7 @@ class QrController extends Controller
         return view('qr_code.qr_builder');
   } // End Method
 
+  
   public function do_qr_builder(Request $request){
      //   dd($request->all());
 
@@ -39,6 +40,9 @@ class QrController extends Controller
    $code = Str::slug($name) . '.' . $qr_img_type; // Riyad Salem >> riyad-salem
    $body = $request->input('body');
    $qr_size = $request->input('qr_size') ?? '300';
+
+   $qr_attachment = $request->input('qr_attachment') ?? 'no';
+
    $qr_correction = $request->input('qr_correction') ?? 'H';
    $qr_encoding = $request->input('qr_encoding') ?? 'UTF-8';
 
@@ -118,6 +122,9 @@ class QrController extends Controller
    );
 
 
+   if($qr_attachment == 'yes'){
+    $qr->merge('../public/centerImg.png', .2, true);
+   }
 
    $qr->generate($body, '../public/qr_code/' . $code);
 
@@ -127,6 +134,23 @@ class QrController extends Controller
    ]);
 
 
+  } // End Method
+
+
+  public function phone(){
+    return view('qr_code.qr_phone');
+  } // End Method
+
+  public function email(){
+    return view('qr_code.qr_email');
+  } // End Method
+
+  public function geo(){
+    return view('qr_code.qr_geo');
+  } // End Method
+
+  public function sms(){
+    return view('qr_code.qr_sms');
   } // End Method
 
 }
